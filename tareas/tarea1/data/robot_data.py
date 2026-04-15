@@ -42,7 +42,7 @@ def simular_lidar(n_sectores=36, d_min=0.5, d_max=30.0):
     
     distancias = np.random.uniform(d_min, d_max, n_sectores)
 
-    # Como son 4 elementos (9 - 5 = 4), se generan 4 nuevos valores aleatorios pequeños de entre 0.5 y 2.0 m
+    # Al ser 4 elementos (9-5), se generan 4 nuevos valores aleatorios pequeños de entre 0.5 y 2.0 m
     distancias[5:9] = np.random.uniform(0.5, 2.0, 4)
 
     distancias_norm = (distancias - d_min) / (d_max - d_min)

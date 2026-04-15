@@ -16,6 +16,7 @@ tarea1/
 │   └── __init__.py         
 └── visualization/     # Generacion de figuras para visualizacion de datos
     └── __init__.py
+    └── graficos.py
 ```
 
 ## Notas de aprendizaje en el desarrollo
