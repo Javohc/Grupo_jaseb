@@ -13,7 +13,8 @@ tarea1/
 │   └── __init__.py 
     └── robot_data.py        
 ├── processing/        # Calculos de ecuaciones
-│   └── __init__.py         
+│   └── __init__.py
+    └── metricas.py         
 └── visualization/     # Generacion de figuras para visualizacion de datos
     └── __init__.py
     └── graficos.py
@@ -28,3 +29,5 @@ El uso de los archivos `__init__.py` en cada paquete sirve para convertir carpet
 El comando `.extend()` sirve para añadir otra lista o en este caso arreglo de numpy a nuestra lista deseada.
 
 El comando `np.random.uniform` genera justamente numero decimales aleatorios con una distribucion uniforme
+
+El comando `round(valor,2)` sirve para entregar un decimal aproximado, sin necesidad de mostrar tantas cifras significativas en pantalla
