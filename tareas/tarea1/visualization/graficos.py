@@ -17,13 +17,13 @@ def plot_metricas(diccionario_experimentos, ambiente, ruta):
         print(f"No se encontraron datos para ambiente='{ambiente}' y ruta='{ruta}'")
         return
 
-    plt.figure()
+    plt.figure(figsize=(10,5)) #figsize aprendido por IA para tener mejor visualizacion de los graficos al poner la figura en un tamaño adecuado
     metricas = ["ISE", "IAE", "ITSE", "ITAE"]
 
     # Grafico ISE
     plt.subplot(1, 4, 1)
-    v_ppo = datos_ppo["ISE"] if datos_ppo['ISE'] is not None else 0
-    v_mask = datos_mask["ISE"] if datos_mask['ISE'] is not None else 0
+    v_ppo = datos_ppo["ISE"]
+    v_mask = datos_mask["ISE"]
     
     plt.bar(["PPO", "PPO-Mask"], [v_ppo, v_mask], color="green")
     plt.title("ISE")
@@ -31,27 +31,29 @@ def plot_metricas(diccionario_experimentos, ambiente, ruta):
 
     # Grafico IAE
     plt.subplot(1, 4, 2)
-    v_ppo = datos_ppo["IAE"] if datos_ppo['IAE'] is not None else 0
-    v_mask = datos_mask["IAE"] if datos_mask['IAE'] is not None else 0
+    v_ppo = datos_ppo["IAE"]
+    v_mask = datos_mask["IAE"]
     
     plt.bar(["PPO", "PPO-Mask"], [v_ppo, v_mask], color="red")
     plt.title("IAE")
 
     # Grafico ITSE
     plt.subplot(1, 4, 3)
-    v_ppo = datos_ppo["ITSE"] if datos_ppo['ITSE'] is not None else 0
-    v_mask = datos_mask["ITSE"] if datos_mask['ITSE'] is not None else 0
+    v_ppo = datos_ppo["ITSE"]
+    v_mask = datos_mask["ITSE"]
     
     plt.bar(["PPO", "PPO-Mask"], [v_ppo, v_mask], color="blue")
     plt.title("ITSE")
 
     # Grafico ITAE
     plt.subplot(1, 4, 4)
-    v_ppo = datos_ppo["ITAE"] if datos_ppo['ITAE'] is not None else 0
-    v_mask = datos_mask["ITAE"] if datos_mask['ITAE'] is not None else 0
+    v_ppo = datos_ppo["ITAE"]
+    v_mask = datos_mask["ITAE"]
     
     plt.bar(["PPO", "PPO-Mask"], [v_ppo, v_mask], color="black")
     plt.title("ITAE")
+
+    plt.tight_layout() # Comando aprendido gracias a IA para que las barras no se solapen entre si
 
     carpeta_destino = "resultados_graficos"
     
@@ -63,7 +65,7 @@ def plot_metricas(diccionario_experimentos, ambiente, ruta):
     plt.close()
 
 def plot_lidar(angulos, distancias, distancias_norm):
-    plt.figure()
+    plt.figure(figsize=(10,5))
 
     plt.subplot(1, 2, 1)
     plt.scatter(angulos, distancias, color="red")
@@ -79,6 +81,8 @@ def plot_lidar(angulos, distancias, distancias_norm):
     plt.ylabel("Valor (0.0 a 1.0)")
     plt.grid(True)
     
+    plt.tight_layout()
+
     carpeta_destino = "resultados_graficos"
     os.makedirs(carpeta_destino, exist_ok=True)
     
@@ -87,7 +91,7 @@ def plot_lidar(angulos, distancias, distancias_norm):
     plt.close()
 
 def plot_trayectorias(x_ppo, y_ppo, x_mask, y_mask, waypoints, nombre):
-    plt.figure()
+    plt.figure(figsize=(10,5))
 
     plt.plot(x_ppo, y_ppo, label="Trayectoria PPO", color="blue")
     plt.plot(x_mask, y_mask, label="Trayectoria PPO-Mask", color="green", linestyle='--')
@@ -104,6 +108,8 @@ def plot_trayectorias(x_ppo, y_ppo, x_mask, y_mask, waypoints, nombre):
     plt.ylabel("Posición Y (m)")
     plt.legend()
     plt.grid(True)
+
+    plt.tight_layout()
     
     carpeta_destino = "resultados_graficos"
     os.makedirs(carpeta_destino, exist_ok=True)

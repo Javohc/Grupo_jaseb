@@ -15,7 +15,7 @@ tarea1/
 ├── processing/
 │   └── __init__.py
     └── metricas.py    # Calculos de ecuaciones
-    └── cinematica.py  # Modelo cinematico     
+    └── cinematicas.py  # Modelo cinematico     
 └── visualization/
     └── __init__.py
     └── graficos.py    # Generacion de figuras para visualizacion de datos
